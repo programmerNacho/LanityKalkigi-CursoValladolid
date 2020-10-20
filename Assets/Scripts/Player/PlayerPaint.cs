@@ -16,6 +16,8 @@ public class PlayerPaint : MonoBehaviour
     private TextureSizes textureSize;
     [SerializeField]
     private Color paintColor;
+    [SerializeField]
+    private InkContainer inkContainer;
 
     private PlayerInput playerInput;
 
@@ -45,12 +47,22 @@ public class PlayerPaint : MonoBehaviour
                 Renderer renderer = hit.transform.GetComponent<Renderer>();
                 if (renderer == paintRenderer)
                 {
-                    Vector2 pixelUV = hit.textureCoord;
-                    pixelUV.x *= paintTexture.width;
-                    pixelUV.y *= paintTexture.height;
+                    if(inkContainer.HasInk())
+                    {
+                        Vector2 pixelUV = hit.textureCoord;
+                        pixelUV.x *= paintTexture.width;
+                        pixelUV.y *= paintTexture.height;
 
-                    paintTexture.SetPixel((int)pixelUV.x, (int)pixelUV.y, paintColor);
-                    paintTexture.Apply();
+                        Color colorPixel = paintTexture.GetPixel((int)pixelUV.x, (int)pixelUV.y);
+
+                        if(colorPixel != paintColor)
+                        {
+                            paintTexture.SetPixel((int)pixelUV.x, (int)pixelUV.y, paintColor);
+                            paintTexture.Apply();
+
+                            inkContainer.UseInk();
+                        }
+                    }
                 }
             }
         }
