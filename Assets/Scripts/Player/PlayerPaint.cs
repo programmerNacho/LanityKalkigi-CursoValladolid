@@ -18,6 +18,8 @@ public class PlayerPaint : MonoBehaviour
     private Color paintColor;
     [SerializeField]
     private InkContainer inkContainer;
+    [SerializeField]
+    private DrawingDifficultySelector drawingDifficultySelector;
 
     private PlayerInput playerInput;
 
@@ -27,8 +29,12 @@ public class PlayerPaint : MonoBehaviour
     {
         playerInput = GetComponent<PlayerInput>();
 
-        paintTexture = new Texture2D((int)textureSize, (int)textureSize);
+        Texture2D sourceTexture = drawingDifficultySelector.SelectDrawing();
+
+        paintTexture = new Texture2D(sourceTexture.width, sourceTexture.height);
         paintTexture.filterMode = FilterMode.Point;
+
+        Graphics.CopyTexture(sourceTexture, paintTexture);
 
         paintRenderer.material.mainTexture = paintTexture;
     }
