@@ -18,6 +18,8 @@ public class PlayerPaint : MonoBehaviour
     private Color paintColor;
     [SerializeField]
     private InkContainer inkContainer;
+    [SerializeField]
+    private GameOverScript noInk;
 
     private PlayerInput playerInput;
 

@@ -13,13 +13,17 @@ public class InkContainer : MonoBehaviour
     // Botton para vover a jugar;
 
     [SerializeField]
-    private int initialInk = 100;
+    private int maxInk = 100;
+    [SerializeField]
+    private UsedInk usedInk;
+    [SerializeField]
+    private GameOverScript noInk;
 
     private int currentInk;
 
     private void Start()
     {
-        currentInk = initialInk;
+        currentInk = maxInk;
     }
 
     public bool HasInk()
@@ -32,11 +36,12 @@ public class InkContainer : MonoBehaviour
         if(HasInk())
         {
             currentInk--;
+            usedInk.InkUse(currentInk, maxInk);
         }
     }
-
     public int GetCurrentInk()
     {
         return currentInk;
     }
+
 }
