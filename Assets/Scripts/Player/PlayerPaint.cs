@@ -19,18 +19,28 @@ public class PlayerPaint : MonoBehaviour
     [SerializeField]
     private InkContainer inkContainer;
     [SerializeField]
-    private GameOverScript noInk;
+    private DrawingDifficultySelector drawingDifficultySelector;
 
     private PlayerInput playerInput;
 
-    private Texture2D paintTexture;
+    private Texture2D selectedTexture; // original
+    private Texture2D paintTexture; // pintada
 
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
 
-        paintTexture = new Texture2D((int)textureSize, (int)textureSize);
+        SelectNewTexture();
+    }
+
+    public void SelectNewTexture()
+    {
+        selectedTexture = drawingDifficultySelector.SelectDrawing();
+
+        paintTexture = new Texture2D(selectedTexture.width, selectedTexture.height);
         paintTexture.filterMode = FilterMode.Point;
+
+        Graphics.CopyTexture(selectedTexture, paintTexture);
 
         paintRenderer.material.mainTexture = paintTexture;
     }

@@ -6,10 +6,10 @@ using UnityEngine.UI;
 public class GameOverScript : MonoBehaviour
 {
     // Cuando la tinta se acabe que aparezca en pantalla;
+    [SerializeField]
+    private Text GameOverText;
 
-    public Text GameOverText;
-
-    private void EndGame()
+    public void EndGame()
     {
         GameOverText.gameObject.SetActive(true);
     }

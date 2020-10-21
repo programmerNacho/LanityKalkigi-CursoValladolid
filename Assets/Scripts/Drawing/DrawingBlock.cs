@@ -19,12 +19,15 @@ public class DrawingBlock : MonoBehaviour
         {
             case PlayerPaint.TextureSizes.Small:
                 texture = smallDrawings[Random.Range(0, smallDrawings.Count)];
+                smallDrawings.Remove(texture);
                 break;
             case PlayerPaint.TextureSizes.Medium:
                 texture = mediumDrawings[Random.Range(0, smallDrawings.Count)];
+                mediumDrawings.Remove(texture);
                 break;
             case PlayerPaint.TextureSizes.Large:
                 texture = largeDrawings[Random.Range(0, smallDrawings.Count)];
+                mediumDrawings.Remove(texture);
                 break;
         }
 

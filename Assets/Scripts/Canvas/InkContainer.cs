@@ -17,7 +17,9 @@ public class InkContainer : MonoBehaviour
     [SerializeField]
     private UsedInk usedInk;
     [SerializeField]
-    private GameOverScript noInk;
+    private GameOverScript GameOverText;
+    [SerializeField]
+    private ReplayGameScript PlayAgain;
 
     private int currentInk;
 
@@ -37,11 +39,15 @@ public class InkContainer : MonoBehaviour
         {
             currentInk--;
             usedInk.InkUse(currentInk, maxInk);
+            if(!HasInk())
+            {
+                GameOverText.EndGame();
+                PlayAgain.PlayAgainButton();
+            }
         }
     }
     public int GetCurrentInk()
     {
         return currentInk;
     }
-
 }
