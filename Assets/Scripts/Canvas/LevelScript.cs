@@ -20,9 +20,6 @@ public class LevelScript : MonoBehaviour
     [SerializeField]
     private PlayerPaint playerPaint;
 
-    [SerializeField]
-    private Button NextLevelButtom;
-
     private int currentLevel = 1;
 
     private int levelValue = 1;

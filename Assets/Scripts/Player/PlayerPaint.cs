@@ -23,6 +23,8 @@ public class PlayerPaint : MonoBehaviour
     [SerializeField]
     private DrawingComparer drawingComparer;
     [SerializeField]
+    private NextLevel nextLevel;
+    [SerializeField]
     private GameWinner gameWinner;
 
     private PlayerInput playerInput;
@@ -81,6 +83,7 @@ public class PlayerPaint : MonoBehaviour
 
                             if (drawingComparer.IsDrawingComplete(selectedTexture, paintTexture, paintColor))
                             {
+                                nextLevel.NextDraw();
                                 gameWinner.WinnGame();
 
                             }
