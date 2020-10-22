@@ -24,4 +24,9 @@ public class DrawingDifficultySelector : MonoBehaviour
             return drawingBlock.GiveMeADrawing(PlayerPaint.TextureSizes.Large);
         }
     }
+
+    public void NextRound()
+    {
+        roundsCompleted++;
+    }
 }
