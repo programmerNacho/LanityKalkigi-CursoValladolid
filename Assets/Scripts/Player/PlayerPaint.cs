@@ -22,6 +22,8 @@ public class PlayerPaint : MonoBehaviour
     private DrawingDifficultySelector drawingDifficultySelector;
     [SerializeField]
     private DrawingComparer drawingComparer;
+    [SerializeField]
+    private GameWinner gameWinner;
 
     private PlayerInput playerInput;
 
@@ -34,7 +36,6 @@ public class PlayerPaint : MonoBehaviour
 
         SelectNewTexture();
     }
-
     public void SelectNewTexture()
     {
         selectedTexture = drawingDifficultySelector.SelectDrawing();
@@ -46,9 +47,9 @@ public class PlayerPaint : MonoBehaviour
 
         paintRenderer.material.mainTexture = paintTexture;
     }
-
     private void Update()
     {
+
         PlayerInput.ActionState primaryActionState = playerInput.GetPrimaryActionState();
 
         if(primaryActionState.holded)
@@ -69,6 +70,8 @@ public class PlayerPaint : MonoBehaviour
 
                         Color colorPixel = paintTexture.GetPixel((int)pixelUV.x, (int)pixelUV.y);
 
+                        
+
                         if(colorPixel != paintColor)
                         {
                             paintTexture.SetPixel((int)pixelUV.x, (int)pixelUV.y, paintColor);
@@ -76,11 +79,11 @@ public class PlayerPaint : MonoBehaviour
 
                             inkContainer.UseInk();
 
-                            if (IsDrawingComplete)
+                            if (drawingComparer.IsDrawingComplete(selectedTexture, paintTexture, paintColor))
                             {
+                                gameWinner.WinnGame();
 
                             }
-
                         }
                     }
                 }

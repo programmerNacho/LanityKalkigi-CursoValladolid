@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class DrawingComparer : MonoBehaviour
 {
+
     public bool IsDrawingComplete(Texture2D original, Texture2D painted, Color paintedColor)
     {
         if(painted.width == original.width && painted.height == original.height)
@@ -15,7 +16,7 @@ public class DrawingComparer : MonoBehaviour
             {
                 for (int j = 0; j < pixelHeights; j++)
                 {
-                    if(original.GetPixel(i, j) != Color.black)
+                    if(original.GetPixel(i, j) != Color.clear)
                     {
                         if(painted.GetPixel(i, j) != paintedColor)
                         {
@@ -25,7 +26,6 @@ public class DrawingComparer : MonoBehaviour
                 }
             }
         }
-
         return true;
     }
 }
