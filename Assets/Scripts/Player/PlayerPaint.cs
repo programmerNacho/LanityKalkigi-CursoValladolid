@@ -20,6 +20,8 @@ public class PlayerPaint : MonoBehaviour
     private InkContainer inkContainer;
     [SerializeField]
     private DrawingDifficultySelector drawingDifficultySelector;
+    [SerializeField]
+    private DrawingComparer drawingComparer;
 
     private PlayerInput playerInput;
 
@@ -73,6 +75,12 @@ public class PlayerPaint : MonoBehaviour
                             paintTexture.Apply();
 
                             inkContainer.UseInk();
+
+                            if (IsDrawingComplete)
+                            {
+
+                            }
+
                         }
                     }
                 }
