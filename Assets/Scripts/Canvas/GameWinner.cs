@@ -13,7 +13,10 @@ public class GameWinner : MonoBehaviour
     {
         GameWinnerText.gameObject.SetActive(true);
         StartCoroutine(Example());
-
+    }   
+    public void EndWinnGame()
+    {
+        GameWinnerText.gameObject.SetActive(false);
     }
     IEnumerator Example()
     {

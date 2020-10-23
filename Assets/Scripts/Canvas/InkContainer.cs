@@ -20,14 +20,29 @@ public class InkContainer : MonoBehaviour
     private GameOverScript GameOverText;
     [SerializeField]
     private ReplayGameScript PlayAgain;
+    [SerializeField]
+    private DrawingCountPixels drawingCountPixels;
+    [SerializeField]
+    private PlayerPaint playerPaint;
+
 
     private int currentInk;
 
     private void Start()
     {
         currentInk = maxInk;
+        
     }
 
+    public void SumInk()
+    {
+        currentInk = currentInk + drawingCountPixels.HowPixelsInDraw(playerPaint.selectedTexture) + (int)(drawingCountPixels.HowPixelsInDraw(playerPaint.selectedTexture) * 0.1f);
+        if(currentInk >= maxInk)
+        {
+            maxInk = currentInk;
+        }
+        usedInk.InkUse(currentInk, maxInk);
+    }
     public bool HasInk()
     {
         return currentInk > 0;
