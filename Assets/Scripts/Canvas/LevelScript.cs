@@ -19,6 +19,11 @@ public class LevelScript : MonoBehaviour
     private Button FinishedLevel;
     [SerializeField]
     private PlayerPaint playerPaint;
+    [SerializeField]
+    private DrawingCountPixels drawingCountPixels;
+
+    [SerializeField]
+    private InkContainer inkContainer;
 
     private int currentLevel = 1;
 
@@ -46,12 +51,13 @@ public class LevelScript : MonoBehaviour
         FindObjectOfType<DrawingDifficultySelector>().NextRound();
         playerPaint.SelectNewTexture();
         ChangeLevelText();
-
+        inkContainer.SumInk();
     }
 
     public void FinishedButton()
     {
             FinishedLevel.gameObject.SetActive(true);
+
         // Si sale Game Over que de deje de ver el botón para que no se pulse;
     }
 }

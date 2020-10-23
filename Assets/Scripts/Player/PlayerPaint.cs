@@ -29,7 +29,7 @@ public class PlayerPaint : MonoBehaviour
 
     private PlayerInput playerInput;
 
-    private Texture2D selectedTexture; // original
+    public Texture2D selectedTexture; // original
     private Texture2D paintTexture; // pintada
 
     private void Start()
@@ -51,6 +51,7 @@ public class PlayerPaint : MonoBehaviour
     }
     private void Update()
     {
+        
 
         PlayerInput.ActionState primaryActionState = playerInput.GetPrimaryActionState();
 

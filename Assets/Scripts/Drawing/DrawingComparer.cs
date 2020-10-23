@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class DrawingComparer : MonoBehaviour
 {
-
     public bool IsDrawingComplete(Texture2D original, Texture2D painted, Color paintedColor)
     {
         if(painted.width == original.width && painted.height == original.height)
