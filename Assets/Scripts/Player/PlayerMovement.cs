@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
     private float runMovementSpeed;
     [SerializeField]
     private float distanceToStop;
+    [SerializeField]
+    private CharacterAnimation characterAnimation;
 
     private PlayerInput playerInput;
 
@@ -55,16 +57,24 @@ public class PlayerMovement : MonoBehaviour
     {
         PlayerInput.ActionState primaryActionState = playerInput.GetPrimaryActionState();
         PlayerInput.ActionState secondaryActionState = playerInput.GetSecondaryActionState();
+        PlayerInput.ActionState fourthActionState = playerInput.GetFourthActionState();
 
-        if(playerToMouse.magnitude >= distanceToStop)
+        characterAnimation.SetMoving(false);
+        characterAnimation.SetPainting(false);
+        characterAnimation.SetAttack(false);
+
+
+        if (playerToMouse.magnitude >= distanceToStop)
         {
             if (primaryActionState.holded)
             {
                 rigidbody.velocity = playerToMouse.normalized * paintMovementSpeed;
+                characterAnimation.SetPainting(true);
             }
             else if (secondaryActionState.holded)
             {
                 rigidbody.velocity = playerToMouse.normalized * runMovementSpeed;
+                characterAnimation.SetMoving(true);
             }
         }
         else
@@ -72,7 +82,16 @@ public class PlayerMovement : MonoBehaviour
             rigidbody.velocity = Vector3.zero;
         }
 
-        if(playerToMouse != Vector3.zero)
+        if (fourthActionState.pressed)
+        {
+            characterAnimation.SetAttack(true);
+        }
+        else
+        {
+            characterAnimation.SetAttack(false);
+        }
+
+        if (playerToMouse != Vector3.zero)
         {
             Vector3 lookDirection = playerToMouse;
             lookDirection.y = 0f;

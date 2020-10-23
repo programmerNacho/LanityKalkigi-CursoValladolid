@@ -13,7 +13,9 @@ public class PlayerInput : MonoBehaviour
 
     private ActionState primaryActionState;
     private ActionState secondaryActionState;
-    private ActionState thirdActionState;
+    //private ActionState thirdActionState;
+    private ActionState fourthActionState;
+
 
     private void Update()
     {
@@ -25,9 +27,13 @@ public class PlayerInput : MonoBehaviour
         secondaryActionState.holded = Input.GetMouseButton(1);
         secondaryActionState.released = Input.GetMouseButtonUp(1);
 
-        thirdActionState.pressed = Input.GetMouseButtonDown(2);
-        thirdActionState.holded = Input.GetMouseButton(2);
-        thirdActionState.released = Input.GetMouseButtonUp(2);
+        //thirdActionState.pressed = Input.GetMouseButtonDown(2);
+        //thirdActionState.holded = Input.GetMouseButton(2);
+        //thirdActionState.released = Input.GetMouseButtonUp(2);
+
+        fourthActionState.pressed = Input.GetKeyDown("Space");
+
+
     }
 
     public ActionState GetPrimaryActionState()
@@ -40,9 +46,14 @@ public class PlayerInput : MonoBehaviour
         return secondaryActionState;
     }
 
-    public ActionState GetThirdActionState()
+    //public ActionState GetThirdActionState()
+    //{
+    //    return thirdActionState;
+    //}
+
+    public ActionState GetFourthActionState()
     {
-        return thirdActionState;
+        return fourthActionState;
     }
 
     public Vector3 GetMouseScreenPosition()
