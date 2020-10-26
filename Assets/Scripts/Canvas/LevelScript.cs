@@ -11,7 +11,7 @@ public class LevelScript : MonoBehaviour
     // Si se resetea la escena que el número vuelva 1 otra vez; 
 
     [SerializeField]
-    public Text levelText,levelText1;
+    public Text levelText;
     [SerializeField]
     public int levelNumber;
 
@@ -43,8 +43,6 @@ public class LevelScript : MonoBehaviour
 
         levelNumber = currentLevel;
         levelText.text = "Level " + levelNumber;
-        levelText1.text = "Level " + levelNumber;
-
     }
 
     public void ChangeDrawing()

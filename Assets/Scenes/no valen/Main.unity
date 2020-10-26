@@ -462,6 +462,8 @@ MonoBehaviour:
   paintMovementSpeed: 5
   runMovementSpeed: 10
   distanceToStop: 0.5
+  characterAnimation: {fileID: 0}
+  movement: {fileID: 0}
 --- !u!114 &540473070
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -483,6 +485,11 @@ MonoBehaviour:
   paintColor: {r: 1, g: 1, b: 1, a: 1}
   inkContainer: {fileID: 890203568}
   drawingDifficultySelector: {fileID: 193347589}
+  drawingComparer: {fileID: 0}
+  nextLevel: {fileID: 0}
+  gameWinner: {fileID: 0}
+  selectedTexture: {fileID: 0}
+  startnewlevel: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,7 +611,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d0a7a2af1f321478c4a37b5bd6c1a6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialInk: 100
+  maxInk: 100
+  usedInk: {fileID: 0}
+  GameOverText: {fileID: 0}
+  PlayAgain: {fileID: 0}
+  drawingCountPixels: {fileID: 0}
+  playerPaint: {fileID: 0}
+  defeat: {fileID: 0}
 --- !u!4 &890203569
 Transform:
   m_ObjectHideFlags: 0
