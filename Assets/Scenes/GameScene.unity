@@ -462,11 +462,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1d701f5a9d8161d4394ecd4d494941ba, type: 3}
-    m_FontSize: 52
+    m_Font: {fileID: 12800000, guid: 11b643c853950a741bf8db78f4b88f75, type: 3}
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 0
     m_MaxSize: 54
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -1167,6 +1167,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2779415368225917572, guid: 39f01d691dc953347928277abc0d75c2,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 9d316a32a1f8ef144a295b2feab53a0d, type: 2}
     - target: {fileID: 7106115405645231752, guid: 39f01d691dc953347928277abc0d75c2,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1227,6 +1232,16 @@ PrefabInstance:
       propertyPath: movement
       value: 
       objectReference: {fileID: 1596484030}
+    - target: {fileID: 7106115405645231753, guid: 39f01d691dc953347928277abc0d75c2,
+        type: 3}
+      propertyPath: paintMovementSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106115405645231753, guid: 39f01d691dc953347928277abc0d75c2,
+        type: 3}
+      propertyPath: runMovementSpeed
+      value: 3.8
+      objectReference: {fileID: 0}
     - target: {fileID: 7106115405645231754, guid: 39f01d691dc953347928277abc0d75c2,
         type: 3}
       propertyPath: inkContainer
@@ -1251,7 +1266,7 @@ PrefabInstance:
         type: 3}
       propertyPath: gameWinner
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1440090718}
     - target: {fileID: 7106115405645231754, guid: 39f01d691dc953347928277abc0d75c2,
         type: 3}
       propertyPath: startnewlevel
@@ -1262,6 +1277,21 @@ PrefabInstance:
       propertyPath: paintRenderer
       value: 
       objectReference: {fileID: 211298086}
+    - target: {fileID: 7106115405645231754, guid: 39f01d691dc953347928277abc0d75c2,
+        type: 3}
+      propertyPath: paintColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106115405645231754, guid: 39f01d691dc953347928277abc0d75c2,
+        type: 3}
+      propertyPath: paintColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7106115405645231754, guid: 39f01d691dc953347928277abc0d75c2,
+        type: 3}
+      propertyPath: paintColor.b
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7106115405645231756, guid: 39f01d691dc953347928277abc0d75c2,
         type: 3}
       propertyPath: m_Name
@@ -1978,7 +2008,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6431373, g: 0.7803922, b: 0.9176471, a: 1}
+  m_Color: {r: 1, g: 0.25882354, b: 0.39607847, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -2211,12 +2241,12 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 1d701f5a9d8161d4394ecd4d494941ba, type: 3}
-    m_FontSize: 52
+    m_Font: {fileID: 12800000, guid: 11b643c853950a741bf8db78f4b88f75, type: 3}
+    m_FontSize: 40
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
-    m_MaxSize: 54
+    m_MinSize: 0
+    m_MaxSize: 58
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 0
@@ -2988,6 +3018,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameSound
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273732501471258358, guid: ef2e327edd54cc24b82581e6b1665f7f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 954695da631e72f479ecc86c286bb93b, type: 3}
+    - target: {fileID: 1273732501471258358, guid: ef2e327edd54cc24b82581e6b1665f7f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.082
+      objectReference: {fileID: 0}
+    - target: {fileID: 1273732501471258358, guid: ef2e327edd54cc24b82581e6b1665f7f,
+        type: 3}
+      propertyPath: Loop
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1273732501471258360, guid: ef2e327edd54cc24b82581e6b1665f7f,
         type: 3}
