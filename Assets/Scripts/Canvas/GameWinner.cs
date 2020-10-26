@@ -23,6 +23,4 @@ public class GameWinner : MonoBehaviour
         yield return new WaitForSecondsRealtime(5);
         GameWinnerText.gameObject.SetActive(false);
     }
-
-
 }

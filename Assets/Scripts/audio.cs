@@ -17,6 +17,8 @@ public class audio : MonoBehaviour
 
     AudioSource audioSource;
 
+    private bool canWalkSound = true;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -64,7 +66,19 @@ public class audio : MonoBehaviour
 
     public void MovementSound()
     {
-        audioSource.PlayOneShot(movement);
+        if(canWalkSound)
+        {
+            StartCoroutine(MovementSoundTime());
+        }
+    }
+
+    private IEnumerator MovementSoundTime()
+    {
+        canWalkSound = false;
+        yield return new WaitForSeconds(0.5f);
+        audioSource.PlayOneShot(movement, 0.3f);
+        canWalkSound = true;
+
     }
 
     public void AvoidEnemySound()

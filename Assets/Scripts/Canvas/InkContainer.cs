@@ -25,8 +25,9 @@ public class InkContainer : MonoBehaviour
     [SerializeField]
     private PlayerPaint playerPaint;
 
-
     private int currentInk;
+
+    public audio defeat;
 
     private void Start()
     {
@@ -58,6 +59,7 @@ public class InkContainer : MonoBehaviour
             {
                 GameOverText.EndGame();
                 PlayAgain.PlayAgainButton();
+                defeat.DefeatSound();
             }
         }
     }

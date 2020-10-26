@@ -22,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 playerToMouse;
 
+    public audio movement;
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -70,11 +72,13 @@ public class PlayerMovement : MonoBehaviour
             {
                 rigidbody.velocity = playerToMouse.normalized * paintMovementSpeed;
                 characterAnimation.SetPainting(true);
+                movement.MovementSound();
             }
             else if (secondaryActionState.holded)
             {
                 rigidbody.velocity = playerToMouse.normalized * runMovementSpeed;
                 characterAnimation.SetMoving(true);
+                movement.MovementSound();
             }
         }
         else
