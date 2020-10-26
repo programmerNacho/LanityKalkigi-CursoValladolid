@@ -668,7 +668,7 @@ RectTransform:
   m_GameObject: {fileID: 297823089}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 1, z: 1}
+  m_LocalScale: {x: 0.5058, y: 1.2645, z: 1.2645}
   m_Children:
   - {fileID: 1913321105}
   m_Father: {fileID: 752839805}
@@ -888,6 +888,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 198920333}
+  levelText1: {fileID: 0}
   levelNumber: 1
   FinishedLevel: {fileID: 297823091}
   playerPaint: {fileID: 540473070}
@@ -2486,11 +2487,11 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_Font: {fileID: 12800000, guid: e3265ab4bf004d28a9537516768c1c75, type: 3}
+    m_FontSize: 16
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
