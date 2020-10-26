@@ -51,6 +51,7 @@ public class LevelScript : MonoBehaviour
     {
         FindObjectOfType<DrawingDifficultySelector>().NextRound();
         playerPaint.SelectNewTexture();
+        FindObjectOfType<audio>().NewLevelSound();
         ChangeLevelText();
         inkContainer.SumInk();
     }
