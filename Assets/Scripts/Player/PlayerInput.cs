@@ -31,7 +31,7 @@ public class PlayerInput : MonoBehaviour
         //thirdActionState.holded = Input.GetMouseButton(2);
         //thirdActionState.released = Input.GetMouseButtonUp(2);
 
-        fourthActionState.pressed = Input.GetKeyDown("Space");
+        fourthActionState.pressed = Input.GetKeyDown(KeyCode.Space);
 
 
     }

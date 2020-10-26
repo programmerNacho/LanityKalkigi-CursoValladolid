@@ -32,6 +32,8 @@ public class PlayerPaint : MonoBehaviour
     public Texture2D selectedTexture; // original
     private Texture2D paintTexture; // pintada
 
+    private bool painting = true;
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -48,50 +50,68 @@ public class PlayerPaint : MonoBehaviour
         Graphics.CopyTexture(selectedTexture, paintTexture);
 
         paintRenderer.material.mainTexture = paintTexture;
+
+
+        painting = true;
     }
     private void Update()
     {
-        
+
 
         PlayerInput.ActionState primaryActionState = playerInput.GetPrimaryActionState();
-
-        if(primaryActionState.holded)
+        if (painting)
         {
-            Ray ray = new Ray(rayOrigin.position, Vector3.down);
-            RaycastHit hit;
-
-            if (Physics.Raycast(ray, out hit, Mathf.Infinity, raycastLayerMask))
+            if (primaryActionState.holded)
             {
-                Renderer renderer = hit.transform.GetComponent<Renderer>();
-                if (renderer == paintRenderer)
+                Ray ray = new Ray(rayOrigin.position, Vector3.down);
+                RaycastHit hit;
+
+                if (Physics.Raycast(ray, out hit, Mathf.Infinity, raycastLayerMask))
                 {
-                    if(inkContainer.HasInk())
+                    Renderer renderer = hit.transform.GetComponent<Renderer>();
+                    if (renderer == paintRenderer)
                     {
-                        Vector2 pixelUV = hit.textureCoord;
-                        pixelUV.x *= paintTexture.width;
-                        pixelUV.y *= paintTexture.height;
-
-                        Color colorPixel = paintTexture.GetPixel((int)pixelUV.x, (int)pixelUV.y);
-
-                        
-
-                        if(colorPixel != paintColor)
+                        if (inkContainer.HasInk())
                         {
-                            paintTexture.SetPixel((int)pixelUV.x, (int)pixelUV.y, paintColor);
-                            paintTexture.Apply();
+                            Vector2 pixelUV = hit.textureCoord;
+                            pixelUV.x *= paintTexture.width;
+                            pixelUV.y *= paintTexture.height;
 
-                            inkContainer.UseInk();
+                            Color colorPixel = paintTexture.GetPixel((int)pixelUV.x, (int)pixelUV.y);
 
-                            if (drawingComparer.IsDrawingComplete(selectedTexture, paintTexture, paintColor))
+
+
+                            if (colorPixel != paintColor)
                             {
-                                nextLevel.NextDraw();
-                                gameWinner.WinnGame();
+                                paintTexture.SetPixel((int)pixelUV.x, (int)pixelUV.y, paintColor);
+                                paintTexture.Apply();
 
+                                inkContainer.UseInk();
+
+                                if (drawingComparer.IsDrawingComplete(selectedTexture, paintTexture, paintColor))
+                                {
+                                    nextLevel.NextDraw();
+                                    gameWinner.WinnGame();
+                                    painting = false;
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
+
+    public void WaitForCanPaint()
+    {
+        StopCoroutine(WaitPaint());
+        StartCoroutine(WaitPaint());
+    }
+
+    private IEnumerator WaitPaint()
+    {
+        painting = false;
+        yield return new WaitForSeconds(1f);
+        painting = true;
     }
 }
