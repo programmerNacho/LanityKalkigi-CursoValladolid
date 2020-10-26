@@ -34,6 +34,8 @@ public class PlayerPaint : MonoBehaviour
 
     private bool painting = true;
 
+    public audio startnewlevel;
+
     private void Start()
     {
         playerInput = GetComponent<PlayerInput>();
@@ -92,6 +94,7 @@ public class PlayerPaint : MonoBehaviour
                                 {
                                     nextLevel.NextDraw();
                                     gameWinner.WinnGame();
+                                    FindObjectOfType<audio>().PlayVictorySound();
                                     painting = false;
                                 }
                             }
