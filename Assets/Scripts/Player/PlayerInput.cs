@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerInput : MonoBehaviour
 {
@@ -32,7 +33,6 @@ public class PlayerInput : MonoBehaviour
         //thirdActionState.released = Input.GetMouseButtonUp(2);
 
         fourthActionState.pressed = Input.GetKeyDown(KeyCode.Space);
-
 
     }
 

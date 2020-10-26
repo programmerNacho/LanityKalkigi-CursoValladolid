@@ -12,7 +12,8 @@ public class NextLevel : MonoBehaviour
     {       
         nextGame.gameObject.SetActive(true);
     } 
-    public void EndNextDraw()
+    public void EndNextDraw
+        ()
     {
         nextGame.gameObject.SetActive(false);
     }
